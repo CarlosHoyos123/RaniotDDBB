@@ -136,6 +136,7 @@ CREATE TABLE registros
 	D5			VARCHAR,
 	D6			VARCHAR,
 	D7			VARCHAR,
+	Limp_previa 	VARCHAR(3);	
 	PH_Enzimatico	decimal(4,2),
 	PH_Desinfectante decimal(4,2),
 	novedad		VARCHAR,
