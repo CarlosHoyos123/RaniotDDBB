@@ -170,10 +170,9 @@ CREATE TABLE usuario
 CREATE TABLE ingresos
 (
 	id_login	mediumint AUTO_INCREMENT PRIMARY KEY,
-	usuario		smallint,
+	usuario		varchar(12),
 	fecha		date,
-	hora		time,
-	FOREIGN KEY (usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
+	hora		time
 ) COMMENT 'Registra los ingresos de los usuarios a la aplicacion';
 
 ALTER TABLE empleados

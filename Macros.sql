@@ -51,42 +51,48 @@ INSERT INTO `cargos`(`nombre_cargo`, `descripcion`)
 INSERT INTO `equipos_IoT`(`serie`, `modelo`, `institucion`, `fecha_fabricacion`, `instalo`) 
 	VALUES 
     	('TestSerie','2','895','2022/1/1','Carlos Hoyos');
+	('2114112',1,895,2021/10/01,'Carlos Hoyos'),
+	('2114111',1,895,2021/10/01,'Carlos Hoyos'),
+	('2114113',1,895,2021/10/01,'Carlos Hoyos');
 -- *****************************************************************
 INSERT INTO `modelo`(`modelo`, `fecha_cracion`) 
 	VALUES 
 	('ENDO-01','2022-03-24'),
 	('PCB','2022-03-24');
 -- *****************************************************************
-INSERT INTO `tags_empleados`(`UID`) 
+INSERT INTO `tags_empleados`(`UID`,`equipo_IoT`) 
 	VALUES 
-    	('06845754'),
-	('66f95854'),
-	('c96b1ebd');
+    	('06845754',	'2114111'),
+	('66f95854',	'2114113'),
+	('c96b1ebd',	'2114112');
 -- *****************************************************************
-INSERT INTO `tags_endoscopios`(`UID`) 
+INSERT INTO `tags_endoscopios`(`equipo_IoT`,`UID`) 
 	VALUES 
-    	('da2fab1e'),
-  	('da36f41e'),
- 	('da44e31e'),
-    	('da6ba91e'),
-    	('da9cb51e'),
-    	('daa6971e'),
-    	('dab5ae1e'),
-    	('dac4071e'),
-    	('dac4ad1e'),
-    	('dacf951e'),
-    	('dade7b1e'),
-    	('dae83d1e'),
-    	('daf6101e'),
-    	('ea063f1e'),
-    	('ea0e591e'),
-    	('ea2ec51e'),
-    	('ea33991e'),
-    	('ea3a971e'),
-    	('ea3ab21e'),
-    	('ea423b1e'),
-    	('ea4c181e'),
-    	('ea4c3d1e');
+    	('2114111	,da44e31e'),
+	('2114111	,da6ba91e'),
+	('2114111	,dab5ae1e'),
+	('2114111	,dac4ad1e'),
+	('2114111	,ea0e591e'),
+	('2114111	,ea2ec51e'),
+	('2114111	,ea33991e'),
+	('2114111	,ea4c181e'),
+	('2114112	,ea3a971e'),
+	('2114112	,da9cb51e'),
+	('2114112	,ea4c3d1e'),
+	('2114112	,dade7b1e'),
+	('2114112	,ea66491e'),
+	('2114112	,ea063f1e'),
+	('2114112	,dacf951e'),
+	('2114112	,ea61831e'),
+	('2114113	,da2fab1e'),
+	('2114113	,dac4071e'),
+	('2114113	,ea3ab21e'),
+	('2114113	,daf6101e'),
+	('2114113	,da36f41e'),
+	('2114113	,ea423b1e'),
+	('2114113	,dae83d1e'),
+	('2114113	,daa6971e');
+
 -- *****************************************************************
 INSERT INTO `protocolo`(`tiempo_enzimatico`, `tiempo_desinfectante`, `concentracion_enzimatico`, `concentracion_desifectante`, `comentarios`) 
 	VALUES 
