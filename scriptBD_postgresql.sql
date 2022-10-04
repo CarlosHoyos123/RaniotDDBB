@@ -64,6 +64,7 @@ CREATE TABLE institucion
 );
 COMMENT ON TABLE institucion IS 'Contiene la  lista de instituciones que realizan reprocesado';
 
+
 CREATE TABLE modelo
 (
 	id_modelo	serial,
@@ -136,7 +137,7 @@ CREATE TABLE registros
 	D5			VARCHAR,
 	D6			VARCHAR,
 	D7			VARCHAR,
-	Limp_previa 	VARCHAR(3);	
+	Limp_previa 	VARCHAR(3),
 	PH_Enzimatico	decimal(4,2),
 	PH_Desinfectante decimal(4,2),
 	novedad		VARCHAR,
@@ -155,6 +156,7 @@ CREATE TABLE protocolo
 	tiempo_desinfectante		int,
 	concentracion_enzimatico	decimal(4,2),
 	concentracion_desifectante	decimal(4,2),
+	comentarios 				TEXT,
 	PRIMARY KEY (id_protocolo)
 );
 COMMENT ON TABLE protocolo IS 'Contiene los parametros de los protocolos de reprocesado aceptables';
