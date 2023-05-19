@@ -59,31 +59,29 @@ INSERT INTO cargos(nombre_cargo, descripcion)
 
 
 
-
 INSERT INTO institucion(director, pais, departamento, municipio, razon_social, direccion, telefono, correo, nit) 
 	VALUES 
-		(int,'Carlos Hoyos','Colombia','Antioquia','Medellin','RANIOT','Calle 78 b 85 A 28','3107203038','clinica@raniot.tech','0000');
-
+		(6,'Colombia','Antioquia','Medellin','RANIOT','Calle 78 b 85 A 28','3107203038','clinica@raniot.tech','0000');
 	PRIMARY KEY (id_inst),
 	FOREIGN KEY (director) REFERENCES empleados(id_empleado)
 
 
 
-
 INSERT INTO empleados(institucion, nombre, direccion, telefono, correo, edad, sexo, fecha_ingreso, fecha_retiro, es_instructor, cargo) 
 	VALUES 
-    	(895,'Carlos Andres Hoyos Rodriguez','Calle 78 B 85 A 28','3107203038','chrodriguez.bmdc@gmail.com','31','Masculino','2022/1/1',null,true,4);
+    	(3,'Carlos Andres Hoyos Rodriguez','Calle 78 B 85 A 28','3107203038','chrodriguez.bmdc@gmail.com','31','Masculino','2022/1/1',null,true,4);
+
 -- *****************************************************************
 INSERT INTO usuario(empleado, usuario, contraseña, fecha_creacion, activo) 
 	VALUES 
-		(1,'carlos.hoyos','ye03RbL','2022/03/24',true);
+		(6,'carlos.hoyos','ye03RbL','2022/03/24',true);
 -- *****************************************************************
 INSERT INTO equipos_IoT(serie, modelo, institucion, fecha_fabricacion, instalo) 
 	VALUES 
-    	('TestSerie','2','895','2022/1/1','Carlos Hoyos'),
-	('2114112',1,895,'2021/10/01','Carlos Hoyos'),
-	('2114111',1,895,'2021/10/01','Carlos Hoyos'),
-	('2114113',1,895,'2021/10/01','Carlos Hoyos');
+    	('TestSerie','2','3','2022/1/1','Carlos Hoyos'),
+	('2114112',1,3,'2021/10/01','Carlos Hoyos'),
+	('2114111',1,3,'2021/10/01','Carlos Hoyos'),
+	('2114113',1,3,'2021/10/01','Carlos Hoyos');
 -- *****************************************************************
 
 INSERT INTO tags_empleados(UID,equipo_IoT) 
