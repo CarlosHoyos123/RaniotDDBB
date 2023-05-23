@@ -19,9 +19,10 @@ public class Tags_employe {
     public Tags_employe() {
     }
 
-    public Tags_employe(String UID, Iotdevice device) {
+    public Tags_employe(String UID, Iotdevice device, Employee employee) {
         this.UID = UID;
         this.device = device;
+        this.employee = employee;
     }
 
     public String getUID() {
