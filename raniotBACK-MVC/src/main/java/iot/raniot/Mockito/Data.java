@@ -14,7 +14,6 @@ public class Data {
                             "1", "2", "3", "4", "5", "6", "7",
                             true, 8, 9, "No", newDevice());
     }
-
     public  static Tag_endoscope newTagEnd(){
         return new Tag_endoscope("qwertyuo", "modeloMock", newInstitution(), newMaintainer(), newDevice());
     }
@@ -45,5 +44,4 @@ public class Data {
     public static List<Reprocess> reprocessList(){
         return Arrays.asList(newReprocessingData(), newReprocessingData());
     }
-
 }

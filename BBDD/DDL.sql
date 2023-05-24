@@ -192,6 +192,11 @@ CREATE TABLE usuario
 );
 COMMENT ON TABLE usuario IS 'Contiene los usuarios para ingresar a la aplicacion';
 
+CREATE table reprocessLogs
+(
+	
+);
+
 CREATE TABLE ingresos
 (
 	id_login	serial,
@@ -208,3 +213,43 @@ ALTER TABLE empleados
 	FOREIGN KEY (institucion) REFERENCES institucion(id_inst);
 
 --  ******************** fin DDL **************
+
+--  ******************** PLPGSQL **************
+
+CREATE OR REPLACE FUNCTION newReprocess () RETURNS registros%rowtype AS
+
+DECLARE
+	default_table := registros;
+	FECHA := $1;
+	HORA :=  $2;
+	ENCARGADO := $3;
+	ENDOSCOPIO := $4;
+	LP :=  $5;
+	D1 :=  $6;
+	D2 :=  $7;
+	D3 :=  $8;
+	D4 :=  $9;
+	D5 :=  $10;
+	D6 :=  $11;
+	D7 :=  $12;
+	PHJE := $13;
+	PHDES :=  $14;
+	EQUIPO :=  $15;
+$BODY$
+BEGIN
+	INSERT INTO fecha,hora,encargado,endoscopio,Limp_previa,D1,D2,D3,D4,D5,D6,D7,PH_Enzimatico,PH_Desinfectante,equipo_IoT 
+		VALUES (FECHA,HORA,ENCARGADO,ENDOSCOPIO,LP,D1,D2,D3,D4,D5,D6,D7,PHJE,PHDES,EQUIPO);
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE EXCEPTION 'No se pudo ingresar el nuevo registro';
+END
+$BODY$
+LANGUAGE PLPGSQL
+
+--  ******************** fin PLPGSQL **************
+
+--  ******************** TRIGGERS **************
+
+CREATE TRIGGER registry after
+
+--  ******************** fin TRIGGERS **************
