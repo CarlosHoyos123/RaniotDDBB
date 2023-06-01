@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class InstitutionUseCase {
 
-    private final InstitutionRepositoryGateway institutionRepositoryGateway;
+    private InstitutionRepositoryGateway institutionRepositoryGateway;
 
     public Mono saveInstitution(Institution institution){
         return  institutionRepositoryGateway.save(institution);

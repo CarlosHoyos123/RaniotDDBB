@@ -2,12 +2,19 @@ package iot.raniot.infrastructure.adapters.entity;
 
 import iot.raniot.domain.model.Employee;
 import iot.raniot.domain.model.IotDevice;
-import lombok.Builder;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Table(name = "registros")
 @Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReprocessDBO {
     @Id
     private Long id ;
@@ -71,7 +78,7 @@ public class ReprocessDBO {
         return idDevice;
     }
 
-    public Employee toDomain(EmployeeDBO employeeDBO){
+    /*public Employee toDomain(EmployeeDBO employeeDBO){
         return new Employee(employeeDBO.getId(),employeeDBO.getInstitution(),employeeDBO.getName(),
                 employeeDBO.getSurName(),employeeDBO.getLastname(),employeeDBO.getSurLastName(),
                 employeeDBO.getAdress(),employeeDBO.getPhone(), employeeDBO.getMail(),employeeDBO.getAge(),
@@ -97,5 +104,5 @@ public class ReprocessDBO {
                 .instructor(employee.isInstructor())
                 .job(employee.getJob())
                 .build();
-    }
+    }*/
 }

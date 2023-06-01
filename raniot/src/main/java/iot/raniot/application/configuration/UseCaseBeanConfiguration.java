@@ -12,7 +12,7 @@ public class UseCaseBeanConfiguration {
     public EmployeeUseCase employeeUseCase(EmployeeRepositoryGateway employeeRepositoryGateway){
         return new EmployeeUseCase(employeeRepositoryGateway);
     }
-    @Bean
+/*    @Bean
     public InstitutionUseCase institutionUseCase(InstitutionRepositoryGateway institutionRepositoryGateway){
         return  new InstitutionUseCase(institutionRepositoryGateway);
     }
@@ -31,5 +31,5 @@ public class UseCaseBeanConfiguration {
     @Bean
     public ReprocessUseCase reprocessUseCase(ReprocessRepositoryGateway reprocessRepositoryGateway){
         return new ReprocessUseCase(reprocessRepositoryGateway);
-    }
+    }*/
 }

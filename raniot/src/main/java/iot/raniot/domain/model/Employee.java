@@ -1,13 +1,9 @@
 package iot.raniot.domain.model;
-
-import iot.raniot.infrastructure.adapters.entity.EmployeeDBO;
-import lombok.Builder;
-
 import java.time.LocalDate;
 
 public class Employee {
     private long id ;
-    private int institution ;
+    private Institution institution ;
     private String name;
     private String surName;
     private String lastname;
@@ -20,69 +16,55 @@ public class Employee {
     private LocalDate inDate;
     private LocalDate withdrawalDate;
     private boolean instructor;
-    private String job;
+    private Job job;
 
     public long getId() {
         return id;
     }
-
-    public int getInstitution() {
+    public Institution getInstitution() {
         return institution;
     }
-
     public String getName() {
         return name;
     }
-
     public String getSurName() {
         return surName;
     }
-
     public String getLastname() {
         return lastname;
     }
-
     public String getSurLastName() {
         return surLastName;
     }
-
     public String getAdress() {
         return adress;
     }
-
     public String getPhone() {
         return phone;
     }
-
     public String getMail() {
         return mail;
     }
-
     public int getAge() {
         return age;
     }
-
     public char getSex() {
         return sex;
     }
-
     public LocalDate getInDate() {
         return inDate;
     }
-
     public LocalDate getWithdrawalDate() {
         return withdrawalDate;
     }
-
     public boolean isInstructor() {
         return instructor;
     }
-
-    public String getJob() {
+    public Job getJob() {
         return job;
     }
 
-    public Employee(long id, int institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, String job) {
+    public Employee(long id, Institution institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, Job job) {
         this.id = id;
         this.institution = institution;
         this.name = name;

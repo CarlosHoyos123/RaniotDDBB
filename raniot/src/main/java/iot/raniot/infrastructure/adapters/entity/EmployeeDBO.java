@@ -1,15 +1,24 @@
 package iot.raniot.infrastructure.adapters.entity;
 
 import iot.raniot.domain.model.Employee;
+import lombok.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
-import lombok.Builder;
+import org.springframework.data.relational.core.mapping.Table;
+
+import javax.swing.*;
 import java.time.LocalDate;
 
+@Table(name = "empleados")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class EmployeeDBO {
     @Id
     private long id ;
-    private int institution ;
+    private InstitutionDBO institution ;
     private String name;
     private String surName;
     private String lastname;
@@ -22,21 +31,21 @@ public class EmployeeDBO {
     private LocalDate inDate;
     private LocalDate withdrawalDate;
     private boolean instructor;
-    private String job;
+    private JobDBO job;
 
-    public Employee toDomain(EmployeeDBO employeeDBO){
+    public static Employee toDomain(EmployeeDBO employeeDBO){
         return new Employee(
-                employeeDBO.getId(), employeeDBO.getInstitution(), employeeDBO.getName(), employeeDBO.getSurName(),
+                employeeDBO.getId(), InstitutionDBO.toDomain(employeeDBO.getInstitution()) , employeeDBO.getName(), employeeDBO.getSurName(),
                 employeeDBO.getLastname(), employeeDBO.getSurLastName(), employeeDBO.getAdress(),
                 employeeDBO.getPhone(), employeeDBO.getMail(), employeeDBO.getAge(), employeeDBO.getSex(),
                 employeeDBO.getInDate(), employeeDBO.getWithdrawalDate(),
-                employeeDBO.isInstructor(),employeeDBO.getJob());
+                employeeDBO.isInstructor(),JobDBO.toDomain(employeeDBO.getJob()));
     }
 
     public static EmployeeDBO fromDomain(Employee employee){
         return EmployeeDBO.builder()
             .id(employee.getId())
-            .institution(employee.getInstitution())
+            .institution(InstitutionDBO.fromDomain(employee.getInstitution()))
             .name(employee.getName())
             .surName(employee.getSurName())
             .lastname(employee.getLastname())
@@ -47,66 +56,7 @@ public class EmployeeDBO {
             .age(employee.getAge())
             .sex(employee.getSex())
             .instructor(employee.isInstructor())
-            .job(employee.getJob())
+            .job(JobDBO.fromDomain(employee.getJob()))
         .build();
-    }
-    public long getId() {
-        return id;
-    }
-
-    public int getInstitution() {
-        return institution;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getSurLastName() {
-        return surLastName;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public char getSex() {
-        return sex;
-    }
-
-    public LocalDate getInDate() {
-        return inDate;
-    }
-
-    public LocalDate getWithdrawalDate() {
-        return withdrawalDate;
-    }
-
-    public boolean isInstructor() {
-        return instructor;
-    }
-
-    public String getJob() {
-        return job;
     }
 }

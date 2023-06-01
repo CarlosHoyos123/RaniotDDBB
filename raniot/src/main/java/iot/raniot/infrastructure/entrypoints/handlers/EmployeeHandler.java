@@ -19,7 +19,7 @@ public class EmployeeHandler {
     }
 
     public Mono<ServerResponse> createEmployee(ServerRequest serverRequest) {
-
+        System.out.println("estas en el handler");
         return serverRequest.bodyToMono(EmployeeDTO.class)
                 .flatMap(EmployeeDTO -> employeeUseCase.saveEmployee(EmployeeDTO.toDomain()))
                 //.flatMap(employeeUseCase::saveEmployee)
@@ -28,6 +28,7 @@ public class EmployeeHandler {
                         .bodyValue(savedNewEmployee))
                 .onErrorResume(exception -> ServerResponse.
                         unprocessableEntity()
-                        .bodyValue("Error en la creacion del empleado"));
+                        .bodyValue(exception.getCause())
+                );
     }
 }

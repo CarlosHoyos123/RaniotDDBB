@@ -19,6 +19,7 @@ public class ApiRest {
 
     @Bean
     public RouterFunction<ServerResponse> userFunctionalEndPoints (EmployeeHandler handler) {
+        String param = "{/id}";
         return RouterFunctions
                 .route(POST(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::createEmployee);
                 //.andRoute(GET(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::queryUsers)
