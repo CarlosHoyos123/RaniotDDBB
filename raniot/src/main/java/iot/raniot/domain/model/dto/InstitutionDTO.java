@@ -6,7 +6,7 @@ import iot.raniot.domain.model.Institution;
 public class InstitutionDTO {
 
     private Long id;
-    private Employee director ;
+    private int director ;
     private String country;
     private String department;
     private String city;
@@ -14,19 +14,19 @@ public class InstitutionDTO {
     private String adress;
     private String phone;
     private String mail;
-    private String id_institution;
+    private String nit;
     private boolean state;
     public static InstitutionDTO fromDomain(Institution institution){
         return new InstitutionDTO(institution.getId(), institution.getDirector(), institution.getCountry(),
                 institution.getDepartment(),institution.getCity(), institution.getName(),
                 institution.getAdress(),institution.getPhone(),
-                institution.getMail(),institution.getId_institution(),institution.isState());
+                institution.getMail(),institution.getNit(),institution.isState());
     }
     public Institution toDomain(){
         return new Institution(id, director,country,department,city,
-                            name,adress,phone,mail,id_institution,state);
+                            name,adress,phone,mail,nit,state);
     }
-    public InstitutionDTO(long id, Employee director, String country, String department, String city, String name, String adress, String phone, String mail, String id_institution, boolean state) {
+    public InstitutionDTO(long id, int director, String country, String department, String city, String name, String adress, String phone, String mail, String nit, boolean state) {
         this.id = id;
         this.director = director;
         this.country = country;
@@ -36,7 +36,7 @@ public class InstitutionDTO {
         this.adress = adress;
         this.phone = phone;
         this.mail = mail;
-        this.id_institution = id_institution;
+        this.nit = nit;
         this.state = state;
     }
 }

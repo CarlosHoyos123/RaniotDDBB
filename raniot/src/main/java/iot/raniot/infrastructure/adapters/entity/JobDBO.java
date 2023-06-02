@@ -6,7 +6,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table(name = "cargos")
+@Table(name = "tbljobs")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

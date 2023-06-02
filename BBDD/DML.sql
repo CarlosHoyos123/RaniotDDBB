@@ -69,7 +69,7 @@ INSERT INTO institucion(director, pais, departamento, municipio, razon_social, d
 
 INSERT INTO empleados(institucion, nombre, direccion, telefono, correo, edad, sexo, fecha_ingreso, fecha_retiro, es_instructor, cargo) 
 	VALUES 
-    	(3,'Carlos Andres Hoyos Rodriguez','Calle 78 B 85 A 28','3107203038','chrodriguez.bmdc@gmail.com','31','Masculino','2022/1/1',null,true,4);
+    	(2,'Carlos Andres Hoyos Rodriguez','Calle 78 B 85 A 28','3107203038','chrodriguez.bmdc@gmail.com','31','Masculino','2022/1/1',null,true,4);
 
 -- *****************************************************************
 INSERT INTO usuario(empleado, usuario, contraseña, fecha_creacion, activo) 

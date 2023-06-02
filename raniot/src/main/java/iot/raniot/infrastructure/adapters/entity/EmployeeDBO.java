@@ -4,12 +4,13 @@ import iot.raniot.domain.model.Employee;
 import lombok.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import javax.swing.*;
 import java.time.LocalDate;
 
-@Table(name = "empleados")
+@Table(name = "tblemployees")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 public class EmployeeDBO {
     @Id
     private long id ;
-    private InstitutionDBO institution ;
+    private int institution ;
     private String name;
     private String surName;
     private String lastname;
@@ -35,7 +36,7 @@ public class EmployeeDBO {
 
     public static Employee toDomain(EmployeeDBO employeeDBO){
         return new Employee(
-                employeeDBO.getId(), InstitutionDBO.toDomain(employeeDBO.getInstitution()) , employeeDBO.getName(), employeeDBO.getSurName(),
+                employeeDBO.getId(), employeeDBO.getInstitution() , employeeDBO.getName(), employeeDBO.getSurName(),
                 employeeDBO.getLastname(), employeeDBO.getSurLastName(), employeeDBO.getAdress(),
                 employeeDBO.getPhone(), employeeDBO.getMail(), employeeDBO.getAge(), employeeDBO.getSex(),
                 employeeDBO.getInDate(), employeeDBO.getWithdrawalDate(),
@@ -45,7 +46,7 @@ public class EmployeeDBO {
     public static EmployeeDBO fromDomain(Employee employee){
         return EmployeeDBO.builder()
             .id(employee.getId())
-            .institution(InstitutionDBO.fromDomain(employee.getInstitution()))
+            .institution(employee.getInstitution())
             .name(employee.getName())
             .surName(employee.getSurName())
             .lastname(employee.getLastname())
@@ -58,5 +59,26 @@ public class EmployeeDBO {
             .instructor(employee.isInstructor())
             .job(JobDBO.fromDomain(employee.getJob()))
         .build();
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeDBO{" +
+                "id=" + id +
+                ", institution=" + institution +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", surLastName='" + surLastName + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mail='" + mail + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", inDate=" + inDate +
+                ", withdrawalDate=" + withdrawalDate +
+                ", instructor=" + instructor +
+                ", job=" + job +
+                '}';
     }
 }

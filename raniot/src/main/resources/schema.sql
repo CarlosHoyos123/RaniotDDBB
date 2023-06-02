@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS tbljobs			 CASCADE;
 DROP TABLE IF EXISTS tblemployees				 CASCADE;
 DROP TABLE IF EXISTS tblinstitutions		 CASCADE;
@@ -41,7 +42,7 @@ CREATE TABLE tblinstitutions
 	department		varchar,
 	city			varchar,
 	name			varchar,
-	adrees			varchar,
+	adress			varchar,
 	phone			varchar,
 	mail			varchar,
 	nit				varchar,

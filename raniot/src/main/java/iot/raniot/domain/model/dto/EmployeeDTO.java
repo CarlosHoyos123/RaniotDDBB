@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class EmployeeDTO {
 
     private long id ;
-    private InstitutionDTO institution ;
+    private int institution ;
     private String name;
     private String surName;
     private String lastname;
@@ -21,7 +21,7 @@ public class EmployeeDTO {
     private boolean instructor;
     private JobDTO job;
 
-    public EmployeeDTO(long id, InstitutionDTO institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, JobDTO job) {
+    public EmployeeDTO(long id, int institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, JobDTO job) {
         this.institution = institution;
         this.name = name;
         this.surName = surName;
@@ -40,13 +40,13 @@ public class EmployeeDTO {
 
     public Employee toDomain( ){
         return new Employee(
-            id, institution.toDomain(), name, surName, lastname, surLastName,
+            id, institution, name, surName, lastname, surLastName,
             adress, phone, mail, age, sex, inDate, withdrawalDate, instructor, job.toDomain());
     }
 
     public static EmployeeDTO fromDomain(Employee employee){
         return new EmployeeDTO(
-            employee.getId(), InstitutionDTO.fromDomain(employee.getInstitution()), employee.getName(), employee.getSurName(),
+            employee.getId(),employee.getInstitution(), employee.getName(), employee.getSurName(),
             employee.getLastname(), employee.getSurLastName(), employee.getAdress(),
             employee.getPhone(), employee.getMail(), employee.getAge(), employee.getSex(),
             employee.getInDate(), employee.getWithdrawalDate(), employee.isInstructor(),

@@ -10,7 +10,7 @@ public class InstitutionUseCase {
 
     private InstitutionRepositoryGateway institutionRepositoryGateway;
 
-    public Mono saveInstitution(Institution institution){
+    public Mono<Institution> saveInstitution(Institution institution){
         return  institutionRepositoryGateway.save(institution);
     }
 

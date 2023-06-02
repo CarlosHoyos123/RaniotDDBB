@@ -12,11 +12,11 @@ public class UseCaseBeanConfiguration {
     public EmployeeUseCase employeeUseCase(EmployeeRepositoryGateway employeeRepositoryGateway){
         return new EmployeeUseCase(employeeRepositoryGateway);
     }
-/*    @Bean
+    @Bean
     public InstitutionUseCase institutionUseCase(InstitutionRepositoryGateway institutionRepositoryGateway){
         return  new InstitutionUseCase(institutionRepositoryGateway);
     }
-    @Bean
+ /*   @Bean
     public InvoiceUseCase invoiceUseCase(InvoiceRepositoryGateway invoiceRepositoryGateway){
         return  new InvoiceUseCase(invoiceRepositoryGateway);
     }

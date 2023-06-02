@@ -2,7 +2,7 @@ package iot.raniot.domain.model;
 
 public class Institution {
     private long id;
-    private Employee director ;
+    private int director ;
     private String country;
     private String department;
     private String city;
@@ -10,14 +10,14 @@ public class Institution {
     private String adress;
     private String phone;
     private String mail;
-    private String id_institution;
+    private String nit;
     private boolean state;
 
     public long getId() {
         return id;
     }
 
-    public Employee getDirector() {
+    public int getDirector() {
         return director;
     }
 
@@ -49,15 +49,15 @@ public class Institution {
         return mail;
     }
 
-    public String getId_institution() {
-        return id_institution;
+    public String getNit() {
+        return nit;
     }
 
     public boolean isState() {
         return state;
     }
 
-    public Institution(long id, Employee director, String country, String department, String city, String name, String adress, String phone, String mail, String id_institution, boolean state) {
+    public Institution(long id, int director, String country, String department, String city, String name, String adress, String phone, String mail, String nit, boolean state) {
         this.id = id;
         this.director = director;
         this.country = country;
@@ -67,7 +67,24 @@ public class Institution {
         this.adress = adress;
         this.phone = phone;
         this.mail = mail;
-        this.id_institution = id_institution;
+        this.nit = nit;
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Institution{" +
+                "id=" + id +
+                ", director=" + director +
+                ", country='" + country + '\'' +
+                ", department='" + department + '\'' +
+                ", city='" + city + '\'' +
+                ", name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mail='" + mail + '\'' +
+                ", nit='" + nit + '\'' +
+                ", state=" + state +
+                '}';
     }
 }

@@ -6,7 +6,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table(name = "institucion")
+@Table(name = "tblinstitutions")
 @Builder
 @Getter
 @Setter
@@ -15,7 +15,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class InstitutionDBO {
     @Id
     private long id;
-    private Employee director ;
+    private int director ;
     private String country;
     private String department;
     private String city;
@@ -23,7 +23,7 @@ public class InstitutionDBO {
     private String adress;
     private String phone;
     private String mail;
-    private String id_institution;
+    private String nit;
     private boolean state;
 
     public static Institution toDomain(InstitutionDBO institutionDBO){
@@ -31,7 +31,7 @@ public class InstitutionDBO {
                 institutionDBO.getCountry(), institutionDBO.getDepartment(),
                 institutionDBO.getCity(), institutionDBO.getName(),
                 institutionDBO.getAdress(), institutionDBO.getPhone(),
-                institutionDBO.getMail(), institutionDBO.getId_institution(),
+                institutionDBO.getMail(), institutionDBO.getNit(),
                 institutionDBO.isState()
         );
     }
@@ -47,7 +47,7 @@ public class InstitutionDBO {
                 .adress(institution.getAdress())
                 .phone(institution.getPhone())
                 .mail(institution.getMail())
-                .id_institution(institution.getId_institution())
+                .nit(institution.getNit())
                 .state(institution.isState())
                 .build();
     }

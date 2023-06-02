@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class Employee {
     private long id ;
-    private Institution institution ;
+    private int institution ;
     private String name;
     private String surName;
     private String lastname;
@@ -21,7 +21,7 @@ public class Employee {
     public long getId() {
         return id;
     }
-    public Institution getInstitution() {
+    public int getInstitution() {
         return institution;
     }
     public String getName() {
@@ -64,7 +64,7 @@ public class Employee {
         return job;
     }
 
-    public Employee(long id, Institution institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, Job job) {
+    public Employee(long id, int institution, String name, String surName, String lastname, String surLastName, String adress, String phone, String mail, int age, char sex, LocalDate inDate, LocalDate withdrawalDate, boolean instructor, Job job) {
         this.id = id;
         this.institution = institution;
         this.name = name;
@@ -80,5 +80,26 @@ public class Employee {
         this.withdrawalDate = withdrawalDate;
         this.instructor = instructor;
         this.job = job;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", institution=" + institution +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", surLastName='" + surLastName + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mail='" + mail + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", inDate=" + inDate +
+                ", withdrawalDate=" + withdrawalDate +
+                ", instructor=" + instructor +
+                ", job=" + job +
+                '}';
     }
 }

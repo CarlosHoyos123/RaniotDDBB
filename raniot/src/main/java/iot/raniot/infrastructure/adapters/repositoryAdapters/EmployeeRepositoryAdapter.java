@@ -17,7 +17,8 @@ public class EmployeeRepositoryAdapter implements EmployeeRepositoryGateway {
 
     @Override
     public Mono<EmployeeDBO> save(Employee employee) {
-        return employeeDBORepository.save(EmployeeDBO.fromDomain(employee));
+        EmployeeDBO employeeDBO = EmployeeDBO.fromDomain(employee);
+        return employeeDBORepository.save(employeeDBO);
     }
 
     @Override

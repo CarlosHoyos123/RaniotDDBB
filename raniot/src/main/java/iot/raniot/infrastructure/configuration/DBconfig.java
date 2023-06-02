@@ -19,7 +19,7 @@ public class DBconfig extends AbstractR2dbcConfiguration {
             PostgresqlConnectionConfiguration
                 .builder()
                     .host("localhost")
-                    .port(5432)
+                    .port(5433)
                     .username("postgres")
                     .password("carlosAdmin")
                     .database("raniot")
